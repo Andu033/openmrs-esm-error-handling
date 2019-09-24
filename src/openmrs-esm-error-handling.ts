@@ -1,4 +1,4 @@
-// import { showToast } from '@openmrs/esm-styleguide'
+import { showToast } from "@openmrs/esm-styleguide";
 
 export function handleApiError() {
   return incomingResponseErr => {
@@ -8,6 +8,8 @@ export function handleApiError() {
   };
 }
 
-window.addEventListener("error", info => {
-  // call "showToast()" or similar inside of openmrs-esm-styleguide
-});
+window.onerror = function(info) {
+  showToast(info);
+
+  return false;
+};
