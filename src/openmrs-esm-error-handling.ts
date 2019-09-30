@@ -9,8 +9,8 @@ export function handleApiError() {
   };
 }
 
-window.onerror = function(info) {
-  showToast(info);
+window.onerror = function() {
+  showToast({ description: "Oops! An unexpected error occurred." });
 
   return false;
 };
