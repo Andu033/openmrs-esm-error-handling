@@ -7,7 +7,7 @@
     "lint": "eslint src --ext ts",
     "typescript": "tsc",
     "build": "webpack",
-    "test": "jest --passWithNoTests",
+    "test": "jest",
     "prepublishOnly": "npm run build"
   },
   "husky": {
