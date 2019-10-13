@@ -1,16 +1,15 @@
 jest.mock("./openmrs-esm-error-handling");
-import { showToast } from "./openmrs-esm-error-handling";
 const { reportError } = jest.requireActual("./openmrs-esm-error-handling");
 
 jest.useFakeTimers();
 describe("error handler", () => {
-  it("da", () => {
-    showToast();
-    expect(showToast).toHaveBeenCalled();
-    expect(showToast.mock.calls[0][0]).toEqual({
-      description: "Something went wrong"
-    });
-  });
+  // it("da", () => {
+  //   showToast();
+  //   expect(showToast).toHaveBeenCalled();
+  //   expect(showToast.mock.calls[0][0]).toEqual({
+  //     description: "Something went wrong"
+  //   });
+  // });
   it("transfrom the input in valid error object if it is not already an error obejct", () => {
     let error;
     try {

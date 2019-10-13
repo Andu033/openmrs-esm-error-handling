@@ -1,5 +1,5 @@
 {
   "moduleNameMapper": {
-    "@openmrs/esm-error-handling": "<rootDir>/src/__mocks__/openmrs-esm-error-handling.mock.tsx"
+    "@openmrs/esm-styleguide": "<rootDir>/__mocks__/openmrs-esm-styleguide.mock.tsx"
   }
 }
