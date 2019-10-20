@@ -3,51 +3,25 @@ const { reportError } = jest.requireActual("./openmrs-esm-error-handling");
 
 jest.useFakeTimers();
 describe("error handler", () => {
-  // it("da", () => {
-  //   showToast();
-  //   expect(showToast).toHaveBeenCalled();
-  //   expect(showToast.mock.calls[0][0]).toEqual({
-  //     description: "Something went wrong"
-  //   });
-  // });
   it("transfrom the input in valid error object if it is not already an error obejct", () => {
-    let error;
-    try {
+    expect(() => {
       reportError("error");
       jest.runAllTimers();
-    } catch (e) {
-      error = e;
-    }
+    }).toThrow("error");
 
-    expect(error).toEqual(new Error("error"));
-
-    try {
+    expect(() => {
       reportError({ error: "error" });
       jest.runAllTimers();
-    } catch (e) {
-      error = e;
-    }
+    }).toThrow('Object thrown as error: {"error":"error"}');
 
-    expect(error).toEqual(
-      new Error('Object thrown as error: {"error":"error"}')
-    );
-
-    try {
+    expect(() => {
       reportError(null);
       jest.runAllTimers();
-    } catch (e) {
-      error = e;
-    }
+    }).toThrow("Object thrown as error: null");
 
-    expect(error).toEqual(new Error("Object thrown as error: null"));
-
-    try {
+    expect(() => {
       reportError(undefined);
       jest.runAllTimers();
-    } catch (e) {
-      error = e;
-    }
-
-    expect(error).toEqual(new Error("'undefined' was thrown as an error"));
+    }).toThrow("'undefined' was thrown as an error");
   });
 });
