@@ -17,7 +17,7 @@ describe("error handler", () => {
     expect(() => {
       reportError(null);
       jest.runAllTimers();
-    }).toThrow("Object thrown as error: null");
+    }).toThrow("'null' was thrown as an error");
 
     expect(() => {
       reportError(undefined);

@@ -17,8 +17,6 @@ window.onerror = function() {
 
 window.onunhandledrejection = function(event) {
   showToast({ description: `UNHANDLED PROMISE REJECTION: ${event.reason}` });
-
-  return false;
 };
 
 export function reportError(err) {
@@ -41,6 +39,8 @@ function ensureErrorObject(thing) {
   let message;
   if (thing instanceof Error) {
     return thing;
+  } else if (thing === null) {
+    return Error(`'null' was thrown as an error`);
   } else if (typeof thing === "object") {
     try {
       message = `Object thrown as error: ${JSON.stringify(thing)}`;
@@ -50,8 +50,6 @@ function ensureErrorObject(thing) {
       )}`;
     }
     return Error(message);
-  } else if (thing === null) {
-    return Error(`'null' was thrown as an error`);
   } else if (thing === undefined) {
     return Error(`'undefined' was thrown as an error`);
   } else {
