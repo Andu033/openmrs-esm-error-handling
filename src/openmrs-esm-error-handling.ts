@@ -16,7 +16,7 @@ window.onerror = function() {
 };
 
 window.onunhandledrejection = function(event) {
-  showToast({ description: `UNHANDLED PROMISE REJECTION: ${event.reason}` });
+  showToast({ description: `Oops! An unexpected error occurred.` });
 };
 
 export function reportError(err) {
